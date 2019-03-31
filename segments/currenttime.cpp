@@ -2,7 +2,7 @@
 #include <chrono>
 #include <ctime>
 
-#include "color_code.h"
+#include "colour_code.h"
 #include "special_character.h"
 
 #include "currenttime.h"

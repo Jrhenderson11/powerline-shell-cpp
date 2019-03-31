@@ -5,8 +5,8 @@
 #include <algorithm>
 #include <git2.h>
 
-#include "color_code.h"
-#include "color_combination.h"
+#include "colour_code.h"
+#include "colour_combination.h"
 #include "special_character.h"
 #include "string_manipulation.h"
 
@@ -193,14 +193,14 @@ namespace git
 
     if (repoState.isGitRepo()) {
 
-      ColorCombination &separatorColors = repoState.repoIsClean() ? repo_clean_separator : repo_dirty_separator;
-      ColorCombination &textColors = repoState.repoIsClean() ? repo_clean : repo_dirty;
+      ColourCombination &separatorColours = repoState.repoIsClean() ? repo_clean_separator : repo_dirty_separator;
+      ColourCombination &textColours = repoState.repoIsClean() ? repo_clean : repo_dirty;
 
-      returnString->append(separatorColors.getColorCode());
+      returnString->append(separatorColours.getColourCode());
       returnString->append(special("separator"));
       returnString->push_back(' ');
 
-      returnString->append(textColors.getColorCode());
+      returnString->append(textColours.getColourCode());
       
       returnString->append(special("git_branch"));
       returnString->push_back(' ');
@@ -222,12 +222,12 @@ namespace git
 	returnString->append(" +");
 
       returnString->push_back(' ');
-      separatorColors.inverse();
-      returnString->append(separatorColors.getColorCode());
+      separatorColours.inverse();
+      returnString->append(separatorColours.getColourCode());
       returnString->append(special("separator"));
     }
     else {
-      returnString->append(ColorCombination( &lightgray, &darkgray ).getColorCode());
+      returnString->append(ColourCombination( &lightgray, &darkgray ).getColourCode());
       returnString->push_back(' ');
       returnString->append(special("separator_thin"));
       returnString->push_back(' ');

@@ -1,11 +1,11 @@
-#ifndef CURRENTTIME_H__
-#define CURRENTTIME_H__
+#ifndef JOBS_H__
+#define JOBS_H__
 
 #include <string>
 
 class ColourCombination;
 
-namespace currenttime
+namespace jobs
 {
 	std::string getSegment();
 }

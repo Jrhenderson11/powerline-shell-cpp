@@ -3,7 +3,7 @@
 
 #include <string>
 
-class ColorCombination;
+class ColourCombination;
 
 namespace git
 {

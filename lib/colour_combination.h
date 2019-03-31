@@ -7,46 +7,46 @@
 #include <sstream>
 #include <ostream>
 
-#include "color_code.h"
+#include "colour_code.h"
 #include "special_character.h"
 
 
-class ColorCombination
+class ColourCombination
 {
 public:
-	ColorCombination( Color* const fg, Color* const bg )
+	ColourCombination( Colour* const fg, Colour* const bg )
 		: foreground(fg)
 		, background(bg)
 	{}
 
 	void inverse();
 
-	std::string getColorCode() const;
+	std::string getColourCode() const;
 
-	Color* getForegroundColor();
-	Color* getBackgroundColor();
+	Colour* getForegroundColour();
+	Colour* getBackgroundColour();
 
-	static std::string resetColor()
+	static std::string resetColour()
 	{
 		return special( "esc" ) + "[0m";
 	}
 
-	static std::string resetForegroundColor()
+	static std::string resetForegroundColour()
 	{
 		return special( "esc" ) + "[39m";
 	}
 
-	static std::string resetBackgroundColor()
+	static std::string resetBackgroundColour()
 	{
 		return special( "esc" ) + "[49m";
 	}
 
 private:
-	Color	*foreground,
+	Colour	*foreground,
 		*background;
 };
 
 
-std::ostream& operator<<( std::ostream& os, const ColorCombination& c );
+std::ostream& operator<<( std::ostream& os, const ColourCombination& c );
 
 #endif

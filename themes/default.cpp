@@ -1,12 +1,28 @@
-GrayScale lightgray = GrayScale(18);
-GrayScale darkgray  = GrayScale(6);
-ColorCombination white_on_gray( &lightgray, &darkgray );
+GrayScale lightgray = GrayScale(23);
+GrayScale darkgray  = GrayScale(4);
+ColourCombination white_on_gray( &lightgray, &darkgray );
 
-BasicColor repo_dirty_fg = BasicColor(7);
-BasicColor repo_clean_fg = BasicColor(0);
-Color256 repo_dirty_bg = Color256(4,0,1);
-Color256 repo_clean_bg = Color256(3,4,0);
-ColorCombination repo_dirty( &repo_dirty_fg, &repo_dirty_bg );
-ColorCombination repo_clean( &repo_clean_fg, &repo_clean_bg );
-ColorCombination repo_dirty_separator( &darkgray, &repo_dirty_bg );
-ColorCombination repo_clean_separator( &darkgray, &repo_clean_bg );
+
+BasicColour repo_dirty_fg = BasicColour(7);
+BasicColour repo_clean_fg = BasicColour(0);
+Colour256 repo_dirty_bg = Colour256(4,0,1);
+Colour256 repo_clean_bg = Colour256(3,4,0);
+
+ColourCombination repo_dirty( &repo_dirty_fg, &repo_dirty_bg );
+ColourCombination repo_clean( &repo_clean_fg, &repo_clean_bg );
+ColourCombination repo_dirty_separator( &darkgray, &repo_dirty_bg );
+ColourCombination repo_clean_separator( &darkgray, &repo_clean_bg );
+
+
+Colour256 short_cwd_bg = Colour256(0,3,1);
+
+ColourCombination short_cwd( &darkgray, &short_cwd_bg );
+ColourCombination short_cwd_separator( &short_cwd_bg, &darkgray );
+
+Colour256 jobs_fg = Colour256(2,2,5);
+
+ColourCombination jobs_colours( &jobs_fg, &darkgray );
+
+Colour256 status_fail_fg = Colour256(2,0,0);
+
+ColourCombination status_fail( &status_fail_fg, &darkgray );

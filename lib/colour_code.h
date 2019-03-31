@@ -8,40 +8,40 @@
 
 #include "special_character.h"
 
-class Color
+class Colour
 {
 public:
 	virtual int value() const = 0;
 };
 
 
-// basic terminal colors
-class BasicColor : public Color
+// basic terminal colours
+class BasicColour : public Colour
 {
 public:
-	BasicColor() : color(0) {}
+	BasicColour() : colour(0) {}
 
-	BasicColor( const unsigned short c )
-		: color(c)
+	BasicColour( const unsigned short c )
+		: colour(c)
 	{
-		assert( color <= 7 );
+		assert( colour <= 7 );
 	}
 
 	int value() const;
 
 private:
-	unsigned short color;
+	unsigned short colour;
 
 };
 
 
-// 256color terminals have value [0, 5] per RGB channel
-class Color256 : public Color
+// 256colour terminals have value [0, 5] per RGB channel
+class Colour256 : public Colour
 {
 public:
-	Color256() : red(0), green(0), blue(0) {}
+	Colour256() : red(0), green(0), blue(0) {}
 
-	Color256( const unsigned short r, const unsigned short g, const unsigned short b )
+	Colour256( const unsigned short r, const unsigned short g, const unsigned short b )
 		: red(r), green(g), blue(b)
 	{
 		assert( red   <= 5 );
@@ -57,7 +57,7 @@ private:
 
 
 // or 0-24 gray scale shades
-class GrayScale : public Color
+class GrayScale : public Colour
 {
 public:
 	GrayScale() : gray(0) {}

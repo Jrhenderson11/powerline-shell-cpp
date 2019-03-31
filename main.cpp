@@ -1,31 +1,36 @@
 #include <iostream>
 
-#include "color_code.h"
-#include "color_combination.h"
+#include "colour_code.h"
+#include "colour_combination.h"
 #include "special_character.h"
 
 #include "currenttime.h"
 #include "cwd.h"
-#include "enumeratecolors.h"
+#include "enumeratecolours.h"
 #include "git.h"
+#include "jobs.h"
 
 int
 main()
 {
-	
 	#include "themes/default.cpp"
 
-//	std::cout << white_on_gray << " " << enumeratecolors::getSegment( white_on_gray );
-//	std::cout << ColorCombination( NULL, &darkgray) << special("separator");
 
-	std::cout << white_on_gray << " " << currenttime::getSegment();
-	
+	std::cout << white_on_gray << cwd::getSegment();
+
 	std::cout << white_on_gray << " " << git::getSegment();
-	
-	std::cout << white_on_gray << " " << cwd::getSegment();
-	std::cout << ColorCombination( &darkgray, NULL ) << special("separator") << " ";
-		
-	std::cout << ColorCombination::resetColor() << std::endl;
+
+	std::string jobs = jobs::getSegment();
+	if (jobs != ""){
+		std::cout << white_on_gray << " " << jobs;
+	}
+
+	std::cout << white_on_gray << " " << "$";
+
+	std::cout << ColourCombination( &darkgray, NULL ) << special("separator") << " ";
+
+
+	std::cout << ColourCombination::resetColour() << std::endl;
 
 	return 0;
 }

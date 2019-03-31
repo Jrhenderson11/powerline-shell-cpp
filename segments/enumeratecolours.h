@@ -1,11 +1,11 @@
-#ifndef CURRENTTIME_H__
-#define CURRENTTIME_H__
+#ifndef TEST_COLOR_H__
+#define TEST_COLOR_H__
 
 #include <string>
 
 class ColourCombination;
 
-namespace currenttime
+namespace enumeratecolours
 {
 	std::string getSegment();
 }

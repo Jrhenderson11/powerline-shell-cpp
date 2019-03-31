@@ -1,13 +1,13 @@
-#include "color_code.h"
+#include "colour_code.h"
 
 
-int BasicColor::value() const
+int BasicColour::value() const
 {
-	return color;
+	return colour;
 }
 
 
-int Color256::value() const
+int Colour256::value() const
 {
 	return 16 + 36*red + 6*green + blue;
 }
