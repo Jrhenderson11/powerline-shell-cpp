@@ -37,14 +37,17 @@ namespace cwd
 		// Originally done with a map, but doing with series of ifs allows more flexibility in ordering and mutually exclusive options
 		if (path.find("/home/user/Documents/CTF", 0) != std::string::npos) {
 
-			path = shortenPath(path, "/home/user/Documents/CTF/", "ctf ");
+			path = shortenPath(path, "/home/user/Documents/CTF/", "CTF ");
+			path = shortenPath(path, "/home/user/Documents/CTF", "CTF ");
 
 		} else if (path.find("/home/user/Documents/git", 0) != std::string::npos) {
 
 			path = shortenPath(path, "/home/user/Documents/git/", "git ");
+			path = shortenPath(path, "/home/user/Documents/git", "git ");
 
-		} else if (path.find("/home/user/", 0) != std::string::npos) {
+		} else if (path.find("/home/user", 0) != std::string::npos) {
 
+			path = shortenPath(path, "/home/user/", "~ ");
 			path = shortenPath(path, "/home/user", "~ ");
 
 		}
@@ -53,8 +56,7 @@ namespace cwd
 			path = path.substr( 1 );
 		}
 
-		path = replaceAllSubstrings( path, "/",
-				" " + special("separator_thin") + " " );
+		path = replaceAllSubstrings( path, "/", " " + special("separator_thin") + " " );
 
 		return path;
 	}

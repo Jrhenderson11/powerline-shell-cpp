@@ -30,7 +30,7 @@ main()
 	std::cout << ColourCombination( &darkgray, NULL ) << special("separator") << " ";
 
 
-	std::cout << ColourCombination::resetColour() << std::endl;
+	std::cout << ColourCombination::resetColour();
 
 	return 0;
 }
