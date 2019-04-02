@@ -28,6 +28,40 @@ So in this case it is almost 10 times faster, although this varies.
 
 Obviously this has a lot less features / segments than the python version, but still has the same aesthetic and core functionality.
 
+## Installation:
+
+To build:
+
+`make`
+
+Then you can copy the binary into your path e.g
+
+`cp ./powerline-shell-cpp /usr/local/bin`
+
+To change your bash prompt: find the line in **~/.bashrc** setting 
+
+`PS1=`
+
+And replace with
+
+```
+    function _update_ps1() {
+        PS1=$(powerline-shell-cpp $?)
+    }
+
+    if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+        PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    fi
+```
+
+And then `source ~/.bashrc` to reload.
+
+I nicked this part from the original powershell so it's not my fault if it's broken ok.
+
+### Note:
+
+If you're editing anything in lib, you may need to do a `make clean` before `make`.
+
 ## Segments:
 
 Cwd:
@@ -44,8 +78,10 @@ if there are any background jobs show the number before the prompt. I liked this
 
 ## What this doesn't have:
 
-I didn't add in colouring the prompt based on success of last shell command as it was quite fiddly to get right. If I miss it I might add it back in.
+I didn't add in colouring the prompt based on success of last shell commands. If I miss it I might add it back in.
 
 ## Misc changes:
 
 I changed the spelling of color to colour.
+
+I fixed so escape characters are properly surrounded with **\\[** and **\\]** so PS1 treats them as 0 width characters.
