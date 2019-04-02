@@ -1,5 +1,8 @@
 # Powerline-cpp
 
+
+![powerline-shell-cpp](https://github.com/Jrhenderson11/powerline-shell-cpp/blob/master/powerline.png "powerline-shell-cpp")
+
 ## Forked from: https://github.com/konradmiller/powerline-shell-cpp
 
 ## Intro:
