@@ -28,17 +28,17 @@ public:
 
 	static std::string resetColour()
 	{
-		return special( "esc" ) + "[0m";
+		return "\\[\\e[0m\\]";
 	}
 
 	static std::string resetForegroundColour()
 	{
-		return special( "esc" ) + "[39m";
+		return "\\[\\e[39m\\]";
 	}
 
 	static std::string resetBackgroundColour()
 	{
-		return special( "esc" ) + "[49m";
+		return "\\[\\e[49m\\]";
 	}
 
 private:

@@ -8,12 +8,12 @@ std::string ColourCombination::getColourCode() const
 {
 	std::stringstream code;
 	if( foreground )
-		code << special( "esc" ) << "[38;5;" << foreground->value() << "m";
+		code << "\\[\\e" << "[38;5;" << foreground->value() << "m\\]";
 	else
 		code << resetForegroundColour();
 		
 	if( background )
-		code << special( "esc" ) << "[48;5;" << background->value() << "m";
+		code << "\\[\\e" << "[48;5;" << background->value() << "m\\]";
 	else
 		code << resetBackgroundColour();
 
