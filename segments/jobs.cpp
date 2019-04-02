@@ -40,7 +40,7 @@ namespace jobs
 		while (std::getline(proc.out(), line)) num_jobs++;	
 		
 		// Don't ask
-		num_jobs -=5;
+		num_jobs -=6;
 		
 		if (num_jobs > 0) {
 			ColourCombination &jobs = jobs_colours;
