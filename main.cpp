@@ -25,7 +25,7 @@ main()
 		std::cout << white_on_gray << " " << jobs;
 	}
 
-	std::cout << white_on_gray << " " << "$";
+	std::cout << white_on_gray << " " << "\\$";
 
 	std::cout << ColourCombination( &darkgray, NULL ) << special("separator") << " ";
 
