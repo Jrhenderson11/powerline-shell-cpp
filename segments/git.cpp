@@ -43,7 +43,7 @@ namespace git
     std::string currentBranchName;
     bool repoClean;
     bool containsUntrackedFiles;
-    bool gitRepoFound;
+    bool gitRepoFound = false;
 
     void openGitRepo(std::string &repoPath);
     void computeCurrentBranchName();
@@ -68,8 +68,8 @@ namespace git
     while (repoPath.length() > 1) {
       error = git_repository_open(&repoHandle, repoPath.c_str());
       if (error >= 0) {
-	gitRepoFound = true;
-	return;
+      	gitRepoFound = true;
+      	return;
       }
       repoPath.erase(repoPath.rfind("/"));
     }
@@ -182,17 +182,17 @@ namespace git
   std::string getSegment()
   {
     char cpath[MAXPATHLEN];
+
     if( getcwd(cpath, sizeof(cpath)/sizeof(char)) == NULL )
       return std::string();
-
+    
     std::string path = cpath;
 
     GitRepoStateSnapshot repoState(path);
     
     std::string *returnString = new std::string();
-
     if (repoState.isGitRepo()) {
-
+  
       ColourCombination &separatorColours = repoState.repoIsClean() ? repo_clean_separator : repo_dirty_separator;
       ColourCombination &textColours = repoState.repoIsClean() ? repo_clean : repo_dirty;
 
@@ -208,18 +208,18 @@ namespace git
       returnString->append(repoState.getBranchName());
       
       if (repoState.getNumGenerationsAhead() > 0) {
-	returnString->push_back(' ');
-	returnString->append(std::to_string(repoState.getNumGenerationsAhead()));
-	returnString->append(special("git_ahead"));
+      	returnString->push_back(' ');
+      	returnString->append(std::to_string(repoState.getNumGenerationsAhead()));
+      	returnString->append(special("git_ahead"));
       }
       if (repoState.getNumGenerationsBehind() > 0) {
-	returnString->push_back(' ');
-	returnString->append(std::to_string(repoState.getNumGenerationsBehind()));
-	returnString->append(special("git_behind"));
+      	returnString->push_back(' ');
+      	returnString->append(std::to_string(repoState.getNumGenerationsBehind()));
+      	returnString->append(special("git_behind"));
       }
 
       if (repoState.repoContainsUntrackedFiles())
-	returnString->append(" +");
+	     returnString->append(" +");
 
       returnString->push_back(' ');
       separatorColours.inverse();
