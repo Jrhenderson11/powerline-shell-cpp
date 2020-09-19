@@ -41,6 +41,8 @@ Then you can copy the binary into your path e.g
 
 `cp ./powerline-shell-cpp /usr/local/bin`
 
+### BASH
+
 To change your bash prompt: find the line in **~/.bashrc** setting 
 
 `PS1=`
@@ -61,9 +63,35 @@ And then `source ~/.bashrc` to reload.
 
 I nicked this part from the original powershell so it's not my fault if it's broken ok.
 
+### ZSH:
+
+Make sure you compile with `-DSHELL=ZSH` in the makefile
+
+Add this snippet to **~/.zshrc**
+
+```
+function powerline_precmd() {
+    PS1="$(powerline-shell-cpp $?)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
+
+```
+
 ### Note:
 
-If you're editing anything in lib, you may need to do a `make clean` before `make`.
+If you're editing anything in lib, you will need to do a `make clean` before `make`.
 
 ## Segments:
 
@@ -87,4 +115,4 @@ I didn't add in colouring the prompt based on success of last shell commands. If
 
 I changed the spelling of color to colour.
 
-I fixed so escape characters are properly surrounded with **\\[** and **\\]** so PS1 treats them as 0 width characters.
+I fixed so escape characters are properly treated as 0 width chars dependent on SHELL macro
