@@ -15,10 +15,13 @@ main()
 {
 	#include "themes/default.cpp"
 
-
 	std::cout << white_on_gray << cwd::getSegment();
 
-	std::cout << white_on_gray << " " << git::getSegment();
+	std::string git = git::getSegment();
+	if (git != ""){
+		std::cout << white_on_gray << " " << git;
+	}
+	//std::cout << white_on_gray << " " << git::getSegment();
 
 	std::string jobs = jobs::getSegment();
 	if (jobs != ""){
@@ -28,7 +31,6 @@ main()
 	std::cout << white_on_gray << " " << "\\$";
 
 	std::cout << ColourCombination( &darkgray, NULL ) << special("separator") << " ";
-
 
 	std::cout << ColourCombination::resetColour();
 

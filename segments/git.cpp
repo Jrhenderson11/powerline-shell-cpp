@@ -226,12 +226,12 @@ namespace git
       returnString->append(separatorColours.getColourCode());
       returnString->append(special("separator"));
     }
-    else {
-      returnString->append(ColourCombination( &lightgray, &darkgray ).getColourCode());
-      returnString->push_back(' ');
-      returnString->append(special("separator_thin"));
-      returnString->push_back(' ');
-  }
+  //   else {
+  //     returnString->append(ColourCombination( &lightgray, &darkgray ).getColourCode());
+  //     returnString->push_back(' ');
+  //     returnString->append(special("separator_thin"));
+  //     returnString->push_back(' ');
+  // }
 
   return *returnString;
   }
