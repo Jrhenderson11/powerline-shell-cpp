@@ -14,7 +14,7 @@ ColourCombination repo_dirty_separator( &darkgray, &repo_dirty_bg );
 ColourCombination repo_clean_separator( &darkgray, &repo_clean_bg );
 
 
-Colour256 short_cwd_bg = Colour256(0,3,1);
+Colour256 short_cwd_bg = Colour256(0,3,1); // green
 
 ColourCombination short_cwd( &darkgray, &short_cwd_bg );
 ColourCombination short_cwd_separator( &short_cwd_bg, &darkgray );

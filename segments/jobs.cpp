@@ -39,7 +39,7 @@ namespace jobs
 		
 		while (std::getline(proc.out(), line)) num_jobs++;	
 		
-		// Don't ask
+		// Don't ask: 1 for columns desc, 1 for shell, one for ps ? 
 		num_jobs -=6;
 		
 		if (num_jobs > 0) {
