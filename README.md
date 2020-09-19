@@ -24,7 +24,7 @@ time powerline-shell-cpp
 
 real    0m0.042s
 user    0m0.021s
-sys	    0m0.018s
+sys     0m0.018s
 ```
 
 So in this case it is almost 10 times faster, although this varies.
