@@ -8,6 +8,7 @@
 #include <ostream>
 
 #include "colour_code.h"
+#include "escape_sequences.h"
 #include "special_character.h"
 
 
@@ -28,17 +29,17 @@ public:
 
 	static std::string resetColour()
 	{
-		return "\\[\\e[0m\\]";
+		return START_ESCAPE "\e[0m" END_ESCAPE;
 	}
 
 	static std::string resetForegroundColour()
 	{
-		return "\\[\\e[39m\\]";
+		return START_ESCAPE "\e[39m" END_ESCAPE;
 	}
 
 	static std::string resetBackgroundColour()
 	{
-		return "\\[\\e[49m\\]";
+		return START_ESCAPE "\e[49m" END_ESCAPE;
 	}
 
 private:
